@@ -1,0 +1,12 @@
+.rating span
+{
+    color: #ffc000;
+}
+
+.reviews{
+    margin-left: .6rem;
+}
+
+.rating  span:last-child{
+    color: #918a8a;
+}
