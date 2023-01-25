@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import styles from "./SigninScreen.module.css";
+import styles from "./RegisterScreen.module.css";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { signin } from "../../Redux/actions/userActions";
+import { register } from "../../Redux/actions/userActions";
 import Loading from "../../components/Loading/Loading";
 import MessageBox from "../../components/MessageBox/MessageBox";
-function SigninScreen() {
+function Register() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
-  const { userInfo,loading,error } = useSelector((state) => state.userSignin);
+  const { userInfo,loading,error } = useSelector((state) => state.userRegister);
+
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    console.log(error);
+
+    if (password !== confirmPassword || null) {
+
+       alert("password and confirmPassword not match")
+    }
+    else{
+      dispatch(register(name,email, password));
+
+    }
 
   };
   useEffect(() => {
@@ -33,7 +45,7 @@ function SigninScreen() {
     <div>
       <form className={styles.form} onSubmit={submitHandler}>
         <div>
-          <h1>Sign In</h1>
+          <h1>Sign Up</h1>
         </div>
         {loading && <Loading></Loading> }
 {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -48,6 +60,16 @@ function SigninScreen() {
           />
         </div>
         <div>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter name"
+            required
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div>
           <label htmlFor="password">password Address</label>
           <input
             type="password"
@@ -55,6 +77,16 @@ function SigninScreen() {
             placeholder="Enter Password"
             required
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="confirmPassword">confirmPassword</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Enter confirm password"
+            required
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
         <div>
@@ -69,15 +101,15 @@ function SigninScreen() {
             }}
             variant="contained"
           >
-            Sign In
+            Sign Up
           </Button>
         </div>
         <div>
           <label />
           <div>
-            New Customer ?{" "}
-            <Link className={styles.newAccount} to={`/register?redirect=${redirect}`}>
-              Create Now Account
+           Already have an account?{" "}
+            <Link className={styles.newAccount} to="/signin">
+            Sign-In
             </Link>
           </div>
         </div>
@@ -86,4 +118,4 @@ function SigninScreen() {
   );
 }
 
-export default SigninScreen;
+export default Register;

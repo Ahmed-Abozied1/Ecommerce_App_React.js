@@ -6,6 +6,8 @@ import ProductDetails from "./Pages/ProductDetails/ProductDetails"
 import CartScreen from "./Pages/CartScreen/CartScreen";
 import Footer from "../src/components/Footer/Footer"
 import SigninScreen from "./Pages/SignIn/SigninScreen";
+import Register from "./Pages/Register/RegisterScreen";
+import ShippingAdreesScreen from "./Pages/ShippingAdreesScreen/ShippingAdreesScreen";
 function App() {
   return (
 
@@ -20,6 +22,8 @@ function App() {
           <Route path="/product/:id" element={<ProductDetails/>}/>
           <Route path="/cart/:id?" element={<CartScreen/>}/>
           <Route path="/signin" element={<SigninScreen/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/shipping" element={<ShippingAdreesScreen/>}/>
          <Route path="*" element={<h1 style={{marginTop:"200px"}}>Page Not Found</h1>}/>
           </Routes>
         </Container>

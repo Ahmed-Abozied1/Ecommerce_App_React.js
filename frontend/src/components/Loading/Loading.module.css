@@ -4,4 +4,6 @@
     align-items: center;
     text-align: center;
     margin-top: 10rem;
+    /* display: block !important ; */
+
 }
