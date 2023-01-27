@@ -11,6 +11,7 @@ function PaymentScreen() {
   const { shippingAddress } = cart;
   if (!shippingAddress.address) {
     navigate("/shipping");
+    
   }
   const [paymentMethod, setPaymentMethod] = useState("Paypal");
   const dispatch = useDispatch();

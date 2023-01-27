@@ -9,6 +9,7 @@ import SigninScreen from "./Pages/SignIn/SigninScreen";
 import Register from "./Pages/Register/RegisterScreen";
 import ShippingAdreesScreen from "./Pages/ShippingAdreesScreen/ShippingAdreesScreen";
 import PaymentScreen from "./Pages/PaymentScreen/PaymentScreen.jsx";
+import PlaceOrderScreen from "./Pages/PlaceOrderScreen/PlaceOrderScreen.jsx";
 function App() {
   return (
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/shipping" element={<ShippingAdreesScreen/>}/>
           <Route path="/payment" element={<PaymentScreen/>}/>
+          <Route path="/placeolder" element={<PlaceOrderScreen/>}/>
          <Route path="*" element={<h1 style={{marginTop:"200px"}}>Page Not Found</h1>}/>
           </Routes>
         </Container>
