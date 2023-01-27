@@ -17,7 +17,7 @@ function CartScreen() {
   //get value from url
   const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
 
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems,shippingAddress } = useSelector((state) => state.cart);
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, quantity));
@@ -29,7 +29,15 @@ function CartScreen() {
   };
   //check out
   const checkoutHandler = () => {
-    navigate("/signin?redirect=shipping");
+   
+    if (!shippingAddress.address) {
+      navigate("/signin");
+    }
+    else {
+      navigate("/shipping");
+
+    }
+    //  navigate("/signin?redirect=shipping");
   };
   return (
     <div className={styles.row}>

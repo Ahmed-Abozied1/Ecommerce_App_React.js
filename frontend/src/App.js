@@ -8,6 +8,7 @@ import Footer from "../src/components/Footer/Footer"
 import SigninScreen from "./Pages/SignIn/SigninScreen";
 import Register from "./Pages/Register/RegisterScreen";
 import ShippingAdreesScreen from "./Pages/ShippingAdreesScreen/ShippingAdreesScreen";
+import PaymentScreen from "./Pages/PaymentScreen/PaymentScreen.jsx";
 function App() {
   return (
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signin" element={<SigninScreen/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/shipping" element={<ShippingAdreesScreen/>}/>
+          <Route path="/payment" element={<PaymentScreen/>}/>
          <Route path="*" element={<h1 style={{marginTop:"200px"}}>Page Not Found</h1>}/>
           </Routes>
         </Container>

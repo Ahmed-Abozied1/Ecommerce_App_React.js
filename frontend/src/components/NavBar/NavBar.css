@@ -1,0 +1,150 @@
+.logo{
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .logo h3{
+    margin-left: .7rem;
+  }
+
+  .logo h3:hover{
+    color: #567b95;
+  }
+  .myheader {
+    background-color: #404040;
+    padding: 1rem;
+  }
+  
+  .myheader a {
+    font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight:  bold;
+  
+  }
+  .myheader :hover{
+    color:"none" !important;
+  }
+  .sticky {
+    /* position: fixed ; */
+    top:0;
+    width: 100%;
+    z-index: 999;
+    height: 10%;
+
+  }
+.userName{
+  text-decoration: none;
+  margin-left: 2rem;
+  color: #7C7C7D;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.userName:hover{
+  text-decoration: none;
+  color: #F0C040;
+  
+}
+.signoutBtn
+{
+   text-decoration: none;
+  margin-left: 2rem;
+  color: #7C7C7D;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+}
+ .badge{
+  
+  background-color: #F0C040;
+  color: #404040;
+  font-size: 1.1rem;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding:  .2rem .7rem;
+  margin-left: .5rem;
+ }
+ .logo{
+  font-weight: bolder;
+  font-size: 1.4rem;
+  font-style: italic;
+ }
+ .items{display: flex;}
+ .signIn{
+  margin-left: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+ }
+ .dropdown{
+  display: inline-block;
+  position: relative;
+
+ }
+
+ .dropdown_content{
+  position: absolute;
+  display: none;
+  right: 5;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #7C7C7D;
+  margin: 0;
+  margin-top: 0;
+  border-radius: .5rem;
+
+ }
+
+ .dropdown:hover .dropdown_content{
+  display: block;
+ }
+
+/* ** */
+/* Navigation bar */
+.nav-item {
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-item::after {
+  content: "";
+  width: 0%;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-link {
+  font-size: 17px !important;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-link:not(.active):hover {
+  transform: translateY(-5px);
+}
+
+.nav-link.active::after,
+.nav-item:hover::after {
+  content: "";
+  width: 96%;
+  height: 2px;
+  background: #329584;
+  position: absolute;
+  bottom: 5px;
+  left: 2px;
+}
+
+.nav-link.active {
+  font-weight: bold !important;
+}
+
+.navbar-toggler {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #aeca87 !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+  border: 1px solid white !important;
+}

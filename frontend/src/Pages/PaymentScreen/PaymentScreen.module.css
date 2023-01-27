@@ -1,0 +1,43 @@
+.form {
+    max-width: 60rem;
+    margin: 50px auto;
+    align-items: center;
+  }
+  h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  input {
+    border-radius: 0.2rem;
+    height: 3rem;
+    background-color: #eee;
+    border: none;
+    border-style: none;
+  }
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .form > div {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+  
+  .form label {
+    margin: 1 rem 0;
+  }
+  
+  
+  .newAccount{
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+  
+      
+  }
+  .newAccount:hover{
+      text-decoration: none;
+  }
