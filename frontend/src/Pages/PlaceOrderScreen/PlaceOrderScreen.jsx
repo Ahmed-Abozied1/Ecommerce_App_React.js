@@ -18,9 +18,9 @@ function PlaceOrderScreen() {
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-const placeorderHandler=()=>{
+  const placeorderHandler = () => {
     //TODO: dispatch action
-}
+  };
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
@@ -123,11 +123,16 @@ const placeorderHandler=()=>{
               </li>
               <li>
                 <Button
-                  className="block"
                   disabled={cart.cartItems.length === 0}
                   onClick={placeorderHandler}
+                  style={{
+                    backgroundColor: "#F0C034",
+                    color: "black",
+                    fontWeight: "bold",
+                  }}
+                  variant="contained"
                 >
-                  place Older
+                  place Order
                 </Button>
               </li>
             </ul>
