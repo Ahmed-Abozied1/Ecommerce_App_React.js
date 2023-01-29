@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import styles from "./PlaceOrderScreen.module.css";
+import "./PlaceOrderScreen.css";
 import { Link, useNavigate } from "react-router-dom";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
 import { Button } from "@mui/material";
@@ -24,104 +24,85 @@ function PlaceOrderScreen() {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
-      <div className={styles.row}>
-        <div className={styles.col_2}>
-          <ul>
-            <li>
-              <div className="card card_body">
-                <h1>Shipping</h1>
-                <p>
-                  <strong>Name :</strong>
-                  {cart.shippingAddress.fullName} <br />,
-                  <strong>Address :</strong>
-                  {cart.shippingAddress.address},{cart.shippingAddress.city},
-                  {cart.shippingAddress.postalCode},
-                  {cart.shippingAddress.country}
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="card card_body">
-                <h1>Payment</h1>
-                <p>
-                  <strong>Method :</strong>
-                  {cart.paymentMethod}
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="card card_body">
-                <h1>Order Items</h1>
-                <ul>
-                  {cart.cartItems.map((item) => (
-                    <li key={item.product}>
-                      <div className={styles.row}>
-                        {/* image */}
-                        <div>
-                          <img
-                            src={item.img}
-                            alt={item.name}
-                            className={styles.small}
-                          ></img>
-                        </div>
-                        {/* productName */}
-                        <div className={styles.showName}>
-                          <Link to={`/ptoduct/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </div>
+      <div classNameName="checkoutpage">
+        <div classNameName="container">
+          <div className="row">
+            <div className="col-md-8 order-md-1">
+              <div className="checkout_sections">
+                <h4
+                  className="Delivery_Address"
+                  style={{
+                    backgroundColor: "#F0C034",
+                    color: "black",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <span className="_1_m52b">Delivery Address</span>
+                </h4>
 
-                        {/* show price */}
-                        <div>
-                          {" "}
-                          {item.quantity} x $ {item.price} = $
-                          {item.quantity * item.price}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <label className=" Saved_address " />
+                <div className=""></div>
+                <div className="Payment_align">
+                  <div className="">
+                    <div className=" saved_address1 " />
+                    <p>
+                      <strong>Name : </strong>
+                      {cart.shippingAddress.fullName} <br />
+                      <strong>Address : </strong>
+                      {cart.shippingAddress.address} /
+                      {cart.shippingAddress.city} /
+                      {cart.shippingAddress.postalCode} /
+                      {cart.shippingAddress.country}
+                    </p>
+                  </div>
+                  <div className="saved_address_edit "></div>
+                </div>
               </div>
-            </li>
-          </ul>
-        </div>
-        <div className="col_1">
-          <div className="card card_body">
-            <ul>
-              <li>
-                <h2>Order Summary</h2>
-              </li>
-              <li>
-                <div className={styles.row}>
-                  <div>Items</div>
-                  <div>$ {cart.itemsPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div className={styles.row}>
-                  <div>Shipping</div>
-                  <div>$ {cart.shippingPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div className={styles.row}>
-                  <div>Tax</div>
-                  <div>$ {cart.taxPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div className={styles.row}>
-                  <div>
-                    {" "}
-                    <strong>Total</strong>
-                  </div>
-                  <div>
-                    {" "}
+            </div>
+
+            <div className="checkout_sections">
+              <h4
+                className="Delivery_Address"
+                style={{
+                  backgroundColor: "#F0C034",
+                  color: "black",
+                  fontWeight: "bold",
+                }}
+              >
+                <span className="_1_m52b">Order summery</span>
+              </h4>
+              <label className=" Saved_address ">
+                <ul className="list-group mb-3">
+                  <li className="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 className="my-0">Items</h6>
+                    </div>
+                    <span className="text-muted">
+                      ${cart.itemsPrice.toFixed(2)}
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 className="my-0">shipping</h6>
+                    </div>
+                    <span className="text-muted">
+                      ${cart.shippingPrice.toFixed(2)}
+                    </span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 className="my-0">tax</h6>
+                    </div>
+                    <span className="text-muted">
+                      $ {cart.taxPrice.toFixed(2)}
+                    </span>
+                  </li>
+
+                  <li className="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
                     <strong>${cart.totalPrice.toFixed(2)}</strong>
-                  </div>
-                </div>
-              </li>
-              <li>
+                  </li>
+                </ul>
                 <Button
                   disabled={cart.cartItems.length === 0}
                   onClick={placeorderHandler}
@@ -134,8 +115,50 @@ function PlaceOrderScreen() {
                 >
                   place Order
                 </Button>
-              </li>
-            </ul>
+              </label>
+            </div>
+
+            <div className="checkout_sections">
+              <h4
+                className="Delivery_Address"
+                style={{
+                  backgroundColor: "#F0C034",
+                  color: "black",
+                  fontWeight: "bold",
+                }}
+              >
+                <span className="_1_m52b">Order Items</span>
+              </h4>
+              <label className=" Saved_address">
+                <ul className="list-group mb-3">
+                  {cart.cartItems.map((item) => (
+                    <li key={item.product}>
+                      <div
+                        className=" d-flex m-4"
+                        style={{ justifyContent: "space-between" }}
+                      >
+                        {/* image */}
+                        <div className="small row">
+                          <img src={item.img} alt={item.name}></img>
+                        </div>
+                        {/* productName */}
+                        <div>
+                          <Link to={`/ptoduct/${item.product}`}>
+                            {item.name}
+                          </Link>
+                        </div>
+
+                        {/* show price */}
+                        <div>
+                          {item.quantity} x $ {item.price} = $
+                          {item.quantity * item.price}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </label>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,183 @@
+/* 
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+  .col_2{
+    flex: 2 1 50rem;
+}
+ul{
+    list-style-type: none;
+
+}
+img{
+    border-radius: .5rem;;
+}
+img.small{
+    max-width: 5rem;
+    width: 100%;
+}
+.col_2{
+    flex: 2 1 50rem;
+}
+ 
+ul{
+    list-style-type: none;
+
+} */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.small{
+    max-width: 5rem;
+    width: 100%;
+}
+.checkoutpage{
+    margin:5em 0em ;
+  }
+  
+  .Delivery_Address{
+      color: #fff;
+      background-color: #2874f0;
+    padding:10px 20px 10px 20px;
+    margin-bottom: 0px;
+  }
+  .payment_number{
+  background-color: #fff;
+      position: relative;
+      top: -5px;
+      font-size: 12px;
+      color: #2874f0;
+      
+      border-radius: 2px;
+      padding: 3px 7px;
+      vertical-align: baseline;
+      margin-right: 17px;
+  }
+  
+  .Saved_address {
+      background-color: #f5faff;
+  }
+  
+  .Saved_address  {
+      border-bottom: 1px solid #f0f0f0;
+      padding: 16px 24px 12px;
+      width: 100%;
+  }
+  
+  .Payment_align{
+      display: inline-block;
+      margin-left: 18px;
+      width: calc(100% - 34px);
+  }
+  .saved_address1 {
+      max-width: 523px;
+      float: left;
+      cursor: pointer;
+      width: 100%;
+  }
+  .saved_address_bold {
+      font-weight: 500;
+  }
+   .saved_address_type {
+      text-transform: uppercase;
+      font-size: 11px;
+      color: #878787;
+      vertical-align: middle;
+      padding: 4px 7px;
+      border-radius: 2px;
+      background-color: #f0f0f0;
+      font-weight: 500;
+    
+    
+  }
+  
+  .saved_address_margin {
+      margin: 0 0 0 11px;
+  }
+  .saved_address_edit{
+      max-width: 325px;
+      float: right;
+  }
+  .saved_address_editsize{
+      font-size: 14px;
+      color: #2874f0;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      outline: none;
+  }
+  .saved_address_details{
+      margin-top: 10px;
+      display: block;
+  }
+  .saved_address_lineheight{
+      line-height: 1.5;
+  }
+  .saved_address_deliver {
+      background: #fb641b;
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+      border: none;
+      color: #fff;
+  }
+  .saved_address_deliversize{
+      font-size: 14px;
+      text-transform: uppercase;
+      width: 200px;
+      height: 48px;
+      margin-top: 12px;
+  }
+  .Edit_address_buttons{
+    -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin-top: 30px;
+  }
+  .Edit_address_cancel{
+      font-weight: 500;
+      color: #2874f0;
+      background-color: transparent;
+      border: none;
+      margin-left: 20px;
+      padding-right: 0;
+  }
+  .payment_section{
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+   box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+  }
+  .order_summery_conform{
+    height: 80px;
+      border-top: 1px solid #f0f0f0;
+      padding: 16px 24px;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+  }
+  input._35lzyU {
+      outline: none;
+      border: none;
+      color: #212121;
+      font-size: 14px;
+      padding: 0px 4px;
+  }
+  .checkout_sections {
+      margin-bottom: 12px;
+  }
