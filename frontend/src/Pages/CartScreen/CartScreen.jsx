@@ -17,7 +17,7 @@ function CartScreen() {
   //get value from url
   const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
 
-  const { cartItems,shippingAddress } = useSelector((state) => state.cart);
+  const { cartItems,shippingAddress,userInfo } = useSelector((state) => state.cart);
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, quantity));
@@ -29,10 +29,10 @@ function CartScreen() {
   };
   //check out
   const checkoutHandler = () => {
-   
-    if (!shippingAddress.address) {
+    if (!userInfo || !shippingAddress) {
       navigate("/signin");
     }
+   
     else {
       navigate("/shipping");
 

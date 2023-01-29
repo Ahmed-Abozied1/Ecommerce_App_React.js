@@ -11,9 +11,7 @@ function ShippingAdreesScreen() {
   const { userInfo } = useSelector((state) => state.userSignin);
   const { shippingAddress } = useSelector((state) => state.cart);
 
-  if (!userInfo || !shippingAddress) {
-    navigate("/signin");
-  }
+ 
 
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
@@ -26,6 +24,10 @@ function ShippingAdreesScreen() {
     dispatch(
       saveShippingAddress({ fullName, address, city, postalCode, country })
     );
+    if (!userInfo || !shippingAddress) {
+      navigate("/signin");
+    }
+    else
     navigate("/payment");
   };
 
@@ -48,7 +50,7 @@ function ShippingAdreesScreen() {
                     className="form-control"
                     id="fullName"
                     placeholder="Enter fullName"
-                    value={fullName}
+                    value=""
                     required
                     onChange={(e) => setFullName(e.target.value)}
                   />
@@ -64,7 +66,7 @@ function ShippingAdreesScreen() {
 
                 <input
                   required
-                  value={address}
+                  value=""
                   onChange={(e) => setAddress(e.target.value)}
                   type="text"
                   className="form-control"
@@ -81,7 +83,7 @@ function ShippingAdreesScreen() {
                   <label for="country">Country</label>
                   <input
                     required
-                    value={address}
+                    value=""
                     onChange={(e) => setCountry(e.target.value)}
                     type="text"
                     className="form-control"
@@ -96,7 +98,7 @@ function ShippingAdreesScreen() {
                   <label for="state">State</label>
                   <input
                     required
-                    value={city}
+                    value=""
                     onChange={(e) => setCity(e.target.value)}
                     type="text"
                     className="form-control"
