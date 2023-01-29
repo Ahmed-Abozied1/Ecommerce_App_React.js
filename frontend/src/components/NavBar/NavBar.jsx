@@ -7,7 +7,6 @@ import "./NavBar.css";
 import { signOut } from "../../Redux/actions/userActions";
 import { Button } from "@mui/material";
 export default function NavBar() {
-
   const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.userSignin);
   const navigate = useNavigate();
@@ -87,13 +86,9 @@ export default function NavBar() {
                     {userInfo.name} <i className="fa fa-caret-down"></i>
                   </Link>
                   <ul className="dropdown_content">
-                    <Link
-                      style={{ color: "#fff" }}
-                      to="#signout"
-                      onClick={signOutHandler}
-                    >
-                      <Button className="signoutBtn"> Sign Out</Button>
-                    </Link>
+                    <Button onClick={signOutHandler} className="signoutBtn">
+                      Sign Out
+                    </Button>
                   </ul>
                 </div>
               ) : (
