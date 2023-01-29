@@ -2,16 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { signOut } from "../../Redux/actions/userActions";
 import { Button } from "@mui/material";
 export default function NavBar() {
+
   const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.userSignin);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const signOutHandler = () => {
     dispatch(signOut());
+    navigate("/signin");
   };
   return (
     <>
@@ -37,10 +40,8 @@ export default function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto me-0">
-
               <li className="nav-item">
-                <Link className="nav-link position-relative"
-                 to="/">
+                <Link className="nav-link position-relative" to="/">
                   Home
                 </Link>
               </li>
@@ -159,7 +160,6 @@ export default function NavBar() {
 //       <Container maxWidth="xl">
 //         <Toolbar disableGutters>
 
-       
 //        <Link to="/">
 //        <Typography
 //             variant="h6"
@@ -168,7 +168,7 @@ export default function NavBar() {
 //             sx={{
 //               mr: 2,
 //               display: { xs: "none", md: "flex" },
-//               fontFamily: "monospace", 
+//               fontFamily: "monospace",
 //               fontWeight: 700,
 //               letterSpacing: ".3rem",
 //               color: "inherit",
@@ -180,10 +180,9 @@ export default function NavBar() {
 //               alt="logo"
 //               width="130px"
 //             />
-        
+
 //           </Typography>
 //        </Link>
-    
 
 //           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
 //             <IconButton

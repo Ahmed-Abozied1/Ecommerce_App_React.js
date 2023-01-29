@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import styles from "./ShippingAdreesScreen.module.css";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShippingAddress } from "../../Redux/actions/cartAction";
@@ -10,8 +9,6 @@ function ShippingAdreesScreen() {
   const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.userSignin);
   const { shippingAddress } = useSelector((state) => state.cart);
-
- 
 
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
@@ -24,11 +21,13 @@ function ShippingAdreesScreen() {
     dispatch(
       saveShippingAddress({ fullName, address, city, postalCode, country })
     );
-    if (!userInfo || !shippingAddress) {
+    if (!userInfo ) {
       navigate("/signin");
     }
-    else
-    navigate("/payment");
+    else{
+      navigate("/payment");
+
+    }
   };
 
   return (
@@ -50,7 +49,7 @@ function ShippingAdreesScreen() {
                     className="form-control"
                     id="fullName"
                     placeholder="Enter fullName"
-                    value=""
+                    value={fullName}
                     required
                     onChange={(e) => setFullName(e.target.value)}
                   />
@@ -66,14 +65,14 @@ function ShippingAdreesScreen() {
 
                 <input
                   required
-                  value=""
+                  value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   type="text"
                   className="form-control"
                   id="Address"
                   placeholder=""
                 />
-                <div className="invalid-feedback">
+              <div className="invalid-feedback">
                   Please enter a valid Address.
                 </div>
               </div>
@@ -83,7 +82,7 @@ function ShippingAdreesScreen() {
                   <label for="country">Country</label>
                   <input
                     required
-                    value=""
+                    value={country}
                     onChange={(e) => setCountry(e.target.value)}
                     type="text"
                     className="form-control"
@@ -98,7 +97,7 @@ function ShippingAdreesScreen() {
                   <label for="state">State</label>
                   <input
                     required
-                    value=""
+                    value={city}
                     onChange={(e) => setCity(e.target.value)}
                     type="text"
                     className="form-control"
@@ -116,6 +115,7 @@ function ShippingAdreesScreen() {
                     className="form-control"
                     id="postalCode"
                     placeholder=""
+                    value={postalCode}
                     required
                     onChange={(e) => setPostalCode(e.target.value)}
                   />
