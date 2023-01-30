@@ -39,7 +39,6 @@ function CartScreen() {
       navigate("/shipping");
 
     }
-    //  navigate("/signin?redirect=shipping");
   };
   return (
     <div className={styles.row}>

@@ -52,7 +52,9 @@ function PlaceOrderScreen() {
                       {cart.shippingAddress.address} /
                       {cart.shippingAddress.city} /
                       {cart.shippingAddress.postalCode} /
-                      {cart.shippingAddress.country}
+                      {cart.shippingAddress.country} <br/>
+                      <strong>PaymentMethod : </strong>
+                      {cart.paymentMethod} <br />
                     </p>
                   </div>
                   <div className="saved_address_edit "></div>
