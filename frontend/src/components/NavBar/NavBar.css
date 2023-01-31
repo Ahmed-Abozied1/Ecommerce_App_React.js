@@ -85,13 +85,13 @@
  .dropdown_content{
   position: absolute;
   display: none;
-  right: 5;
+  right: 0px;
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
-  background-color: #7C7C7D;
+  background-color: #F5FAFF;
   margin: 0;
-  margin-top: 0;
+  margin-top: 5px;
   border-radius: .5rem;
 
  }
