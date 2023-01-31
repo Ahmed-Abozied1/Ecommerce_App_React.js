@@ -1,33 +1,4 @@
-/* 
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-  .col_2{
-    flex: 2 1 50rem;
-}
-ul{
-    list-style-type: none;
 
-}
-img{
-    border-radius: .5rem;;
-}
-img.small{
-    max-width: 5rem;
-    width: 100%;
-}
-.col_2{
-    flex: 2 1 50rem;
-}
- 
-ul{
-    list-style-type: none;
-
-} */
 .row{
     display: flex;
     flex-wrap: wrap;

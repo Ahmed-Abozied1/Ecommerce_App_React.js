@@ -1,9 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./PlaceOrderScreen.css";
 import { Link, useNavigate } from "react-router-dom";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
 import { Button } from "@mui/material";
+import { createOrder } from "../../Redux/actions/orderAcion";
+import { ORDER_CREATE_RESET } from "../../Redux/constants/orderConstants";
+import Loading from "../../components/Loading/Loading";
+import MessageBox from "../../components/MessageBox/MessageBox";
 
 function PlaceOrderScreen() {
   const cart = useSelector((state) => state.cart);
@@ -11,6 +15,10 @@ function PlaceOrderScreen() {
   if (!cart.paymentMethod) {
     navigate("/payment");
   }
+  const { loading, success, error, order } = useSelector(
+    (state) => state.orderCreate
+  );
+
   const toPrice = (num) => Number(num.toFixed(2));
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
@@ -18,21 +26,32 @@ function PlaceOrderScreen() {
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+  const dispatch = useDispatch();
+
   const placeorderHandler = () => {
-    //TODO: dispatch action
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
+    }
+  }, [dispatch, navigate, order, success]);
+
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
-      <div classNameName="checkoutpage">
-        <div classNameName="container">
+      {loading && <Loading></Loading>}
+      {error && <MessageBox variant="danger">{error}</MessageBox>}
+      <div className="checkoutpage">
+        <div className="container">
           <div className="row">
             <div className="col-md-8 order-md-1">
               <div className="checkout_sections">
                 <h4
                   className="Delivery_Address"
                   style={{
-                    backgroundColor: "#F0C034",
+                    backgroundColor: "#F5FAFF",
                     color: "black",
                     fontWeight: "bold",
                   }}
@@ -52,7 +71,7 @@ function PlaceOrderScreen() {
                       {cart.shippingAddress.address} /
                       {cart.shippingAddress.city} /
                       {cart.shippingAddress.postalCode} /
-                      {cart.shippingAddress.country} <br/>
+                      {cart.shippingAddress.country} <br />
                       <strong>PaymentMethod : </strong>
                       {cart.paymentMethod} <br />
                     </p>
@@ -66,7 +85,7 @@ function PlaceOrderScreen() {
               <h4
                 className="Delivery_Address"
                 style={{
-                  backgroundColor: "#F0C034",
+                  backgroundColor: "#F5FAFF",
                   color: "black",
                   fontWeight: "bold",
                 }}
@@ -124,7 +143,7 @@ function PlaceOrderScreen() {
               <h4
                 className="Delivery_Address"
                 style={{
-                  backgroundColor: "#F0C034",
+                  backgroundColor: "#F5FAFF",
                   color: "black",
                   fontWeight: "bold",
                 }}

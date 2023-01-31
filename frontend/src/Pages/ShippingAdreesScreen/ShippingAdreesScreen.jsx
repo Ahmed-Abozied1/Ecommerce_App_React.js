@@ -43,7 +43,7 @@ function ShippingAdreesScreen() {
             >
               <div className="row">
                 <div>
-                  <label for="firstName">FullName</label>
+                  <label htmlFor="firstName">FullName</label>
                   <input
                     type="text"
                     className="form-control"
@@ -61,7 +61,7 @@ function ShippingAdreesScreen() {
               </div>
 
               <div className="mb-3">
-                <label for="email">Address</label>
+                <label htmlFor="email">Address</label>
 
                 <input
                   required
@@ -79,7 +79,7 @@ function ShippingAdreesScreen() {
 
               <div className="row">
                 <div className="col-md-5 mb-3">
-                  <label for="country">Country</label>
+                  <label htmlFor="country">Country</label>
                   <input
                     required
                     value={country}
@@ -94,7 +94,7 @@ function ShippingAdreesScreen() {
                   </div>
                 </div>
                 <div className="col-md-4 mb-3">
-                  <label for="state">State</label>
+                  <label htmlFor="state">State</label>
                   <input
                     required
                     value={city}
@@ -109,7 +109,7 @@ function ShippingAdreesScreen() {
                   </div>
                 </div>
                 <div className="col-md-3 mb-3">
-                  <label for="postalCode">postalCode</label>
+                  <label htmlFor="postalCode">postalCode</label>
                   <input
                     type="number"
                     className="form-control"
@@ -139,7 +139,6 @@ function ShippingAdreesScreen() {
                 >
                   Continue
                 </Button>
-                <button className="Edit_address_cancel">CANCEL</button>
               </div>
             </form>
           </div>

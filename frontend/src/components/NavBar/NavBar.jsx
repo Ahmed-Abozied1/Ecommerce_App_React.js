@@ -56,17 +56,31 @@ export default function NavBar() {
               </li>
             </ul>
 
-            <Link
-              className="cart position-relative mx-4 d-none d-sm-none d-md-none d-lg-block text-decoration-none text-dark"
-              to="/cart"
-            >
-              <i className="fas fa-shopping-cart fs-4"></i>
-              {cartItems.length > 0 && (
-                <span className="badge   position-absolute top-4 start-100 translate-middle">
-                  {cartItems.length}
-                </span>
-              )}
-            </Link>
+            {!userInfo ? (
+              <Link
+                className="cart position-relative mx-4 d-none d-sm-none d-md-none d-lg-block text-decoration-none text-dark"
+                to="/signin"
+              >
+                <i className="fas fa-shopping-cart fs-4"></i>
+                {cartItems.length > 0 && (
+                  <span className="badge   position-absolute top-4 start-100 translate-middle">
+                    {cartItems.length}
+                  </span>
+                )}
+              </Link>
+            ) : (
+              <Link
+                className="cart position-relative mx-4 d-none d-sm-none d-md-none d-lg-block text-decoration-none text-dark"
+                to="/cart"
+              >
+                <i className="fas fa-shopping-cart fs-4"></i>
+                {cartItems.length > 0 && (
+                  <span className="badge   position-absolute top-4 start-100 translate-middle">
+                    {cartItems.length}
+                  </span>
+                )}
+              </Link>
+            )}
 
             <form className="d-flex">
               <input

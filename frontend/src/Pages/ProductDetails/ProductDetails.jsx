@@ -10,6 +10,7 @@ import Rating from "../../components/Rating/Rating";
 
 function ProductDetails() {
    const [quantity, setQuantity] = useState(1);
+   const { userInfo } = useSelector((state) => state.userSignin);
 
   //**using redux to get data */
   const dispatch = useDispatch();
@@ -115,10 +116,18 @@ function ProductDetails() {
                       </select>
                     </div>
                   </div>
+{
+  !userInfo ?( <Link to='/signin'>
+                    <button  className={styles.addToCardBtn}>Add to card</button>
+                  </Link>)
+                  :(
 
-                  <Link to={`/cart/${id}?quantity=${quantity}`}>
+                    <Link to={`/cart/${id}?quantity=${quantity}`}>
                     <button  className={styles.addToCardBtn}>Add to card</button>
                   </Link>
+                  )
+}
+                 
                 </>
               )}
             </div>
