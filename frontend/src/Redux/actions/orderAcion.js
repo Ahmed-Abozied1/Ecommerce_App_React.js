@@ -19,7 +19,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
         Authorization : `Bearer ${userInfo.token}`,
       },
     });
-    console.log("successs created order");
 
     dispatch({ type: ORDER_CREATE_SUCCESS, payload: data.order });
     dispatch({ type: CART_EMPTY });

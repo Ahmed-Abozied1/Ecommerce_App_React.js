@@ -26,8 +26,8 @@ function PlaceOrderScreen() {
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const placeorderHandler = () => {
     dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
