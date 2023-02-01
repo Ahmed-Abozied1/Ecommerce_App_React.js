@@ -17,6 +17,7 @@ export default function NavBar() {
   };
   return (
     <>
+   
       <nav className=" sticky navbar navbar-expand-lg navbar-light bg-light px-1 px-md-5 py-md-4 border-3 border-bottom border-secondary ">
         <div className="container-fluid">
           <Link className="navbar-brand" href="/">
